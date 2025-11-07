@@ -1,0 +1,423 @@
+    body {
+      font-family: 'Exo', sans-serif;
+    }
+    .translate-y-12 {
+      transform: translateY(3rem); /* 48px */
+    }
+
+    .translate-y-0 {
+      transform: translateY(0);
+    }
+
+    .opacity-0 {
+      opacity: 0;
+    }
+
+    .opacity-100 {
+      opacity: 1;
+    }
+
+    .transition-all {
+      transition: all 0.7s ease;
+    }
+    .transition-delay-200 {
+      transition-delay: 0.2s;
+    }
+
+    .background-responsive {
+      background-image: url('../../establishment/img/screen.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+
+    /* Efeito de rotação de texto com múltiplas palavras visíveis */
+    .text-rotator-container {
+      position: relative;
+      display: inline-block;
+      height: 1.5em; /* Altura para a palavra atual */
+      width: 280px; /* Largura fixa para evitar layout shift */
+      overflow: visible; /* Permite ver as palavras acima e abaixo */
+      vertical-align: middle;
+      line-height: 1.2;
+    }
+
+    .text-rotator-word {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      white-space: nowrap;
+      transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      transform-origin: center;
+      text-align: left;
+      
+      /* Gradiente de cor CORRIGIDO - sem transparência */
+      background: linear-gradient(45deg, #f59e0b, #ec4899);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      
+      /* Fallback para navegadores que não suportam background-clip */
+      color: #f59e0b;
+    }
+
+    /* Suporte melhorado para gradiente de texto */
+    @supports (-webkit-background-clip: text) {
+      .text-rotator-word {
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+
+    /* Estados das palavras */
+    .text-rotator-word.previous {
+      transform: translateY(-1.5em) scale(0.85);
+      opacity: 0.4;
+      filter: blur(0.5px);
+    }
+
+    .text-rotator-word.current {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+      filter: blur(0);
+      z-index: 10;
+    }
+
+    .text-rotator-word.next {
+      transform: translateY(1.5em) scale(0.85);
+      opacity: 0.4;
+      filter: blur(0.5px);
+    }
+
+    .text-rotator-word.far-previous {
+      transform: translateY(-3em) scale(0.7);
+      opacity: 0.2;
+      filter: blur(1px);
+    }
+
+    .text-rotator-word.far-next {
+      transform: translateY(3em) scale(0.7);
+      opacity: 0.2;
+      filter: blur(1px);
+    }
+
+    .text-rotator-word.hidden {
+      opacity: 0;
+      transform: translateY(5em) scale(0.5);
+    }
+
+    /* Animação suave para mudanças */
+    .text-rotator-word {
+      will-change: transform, opacity, filter;
+    }
+
+    /* Responsivo para mobile */
+    @media (max-width: 768px) {
+      .text-rotator-container {
+        width: 200px;
+        height: 1.2em;
+      }
+      
+      .text-rotator-word.previous {
+        transform: translateY(-1.2em) scale(0.85);
+        color: transparent;
+      }
+      
+      .text-rotator-word.next {
+        transform: translateY(1.2em) scale(0.85);
+      }
+
+      .text-rotator-word.far-next {
+        transform: translateY(2.4em) scale(0.7);
+      }
+    }
+
+    /* Alternativa com cor sólida caso o gradiente não funcione */
+    .text-rotator-word.solid-color {
+      background: none;
+      -webkit-background-clip: unset;
+      background-clip: unset;
+      -webkit-text-fill-color: unset;
+      color: #f59e0b; /* Cor sólida amarela */
+    }
+
+      /* Responsivo para mobile */
+    @media (max-width: 768px) {
+      .text-rotator-word.previous, .text-rotator-word.far-previous {
+        color: transparent!important;
+      }
+    }
+
+
+
+    /* Animação imagens mobile - visível por padrão */
+    .animation-container {
+        position: relative;
+        width: 265px;
+        height: 265px;
+        padding: 15px;
+        display: flex;
+        visibility: visible;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        backdrop-filter: blur(10px);
+    }
+
+    .animation-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 17px;
+        transition: filter 1s cubic-bezier(0.4, 0, 0.2, 1); /* Transição mais suave para o desfoque */
+    }
+
+    .animation-image.blurred {
+        filter: blur(8px) brightness(0.7); /* Efeito de desfoque mais intenso com escurecimento */
+    }
+
+    .animation-svg {
+        position: absolute;
+        width: 250px;
+        height: 250px;
+        filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+        transition: transform 0.3s ease-out;
+    }
+
+    .animation-svg.rotating {
+        animation: rotate 2s linear infinite; /* Animação de rotação */
+    }
+
+    .animation-svg.paused {
+        animation-play-state: paused;
+    }
+
+    /* Animação de rotação mais suave */
+    @keyframes rotate {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    /* Efeito de hover para interatividade */
+    .animation-container:hover {
+        transform: scale(1.05);
+        transition: transform 0.3s ease;
+    }
+  
+    /* No MD pra cima → esconder */
+    @media (min-width: 768px) {
+        .animation-container {
+            display: none;
+            visibility: hidden;
+        }
+    }
+
+
+    /*Galeria*/
+  .gallery-container {
+    overflow: hidden;
+    padding: 40px 0;
+    width: 100%;
+  }
+
+  .gallery {
+    display: flex;
+    gap: 32px;
+    /* largura vai ser automática */
+  }
+
+  .img-wrapper {
+    width: 300px;
+    height: 500px;
+    overflow: hidden;
+    border-radius: 12px;
+    flex-shrink: 0;
+    opacity: 0;
+    transform: scale(0.95);
+    transition: transform 0.3s ease, opacity 0.8s ease;
+  }
+
+  .img-wrapper.show {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.1);
+    transition: transform 0.5s ease;
+  }
+
+  .img-wrapper:hover img {
+    transform: scale(1.3);
+  }
+
+
+  /* FORMULARIO */
+
+  form {
+    background: #121212;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(255,255,255,0.2);
+    max-width: 420px;
+    width: 100%;
+    color: #eee;
+    box-sizing: border-box;
+  }
+  form > h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #fff;
+  }
+  /* Breadcrumb bolinhas pequenas, sem estilo de botão */
+  .breadcrumb {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+    gap: 12px;
+  }
+  .breadcrumb span {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid #555;
+    background: transparent;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+  .breadcrumb span.active {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+  }
+  .breadcrumb span:hover:not(.active) {
+    border-color: #0d6efd;
+  }
+  .breadcrumb span:focus-visible {
+    outline: 2px solid #0d6efd;
+    outline-offset: 3px;
+  }
+  /* Etapas */
+  .step {
+    display: none;
+  }
+  .step.active {
+    display: block;
+  }
+  label {
+    display: block;
+    margin-bottom: 6px;
+    margin-top: 18px;
+    font-weight: 600;
+    color: #ccc;
+  }
+  input, select {
+    width: 100%;
+    height: 42px;
+    padding: 10px 12px;
+    margin-bottom: 15px;
+    border: 1px solid #444;
+    border-radius: 4px;
+    font-size: 1rem;
+    background: #222;
+    color: #eee;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+  }
+  input::placeholder {
+    color: #999;
+  }
+  input:focus, select:focus {
+    border-color: #0d6efd;
+    outline: none;
+    background: #333;
+  }
+  .error {
+    border-color: #d93025 !important;
+  }
+  .error-message {
+    color: #d93025;
+    font-size: 0.85rem;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    display: none;
+  }
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  button[type="button"], button[type="submit"] {
+    flex: 1;
+    background-color: #0d6efd;
+    border: none;
+    color: white;
+    padding: 12px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  button[type="button"]:disabled {
+    background-color: #999;
+    cursor: not-allowed;
+  }
+  /* Botão voltar habilitado cinza escuro */
+  #prevBtn:enabled {
+    background-color: #444;
+    cursor: pointer;
+  }
+  #prevBtn:enabled:hover {
+    background-color: #666;
+  }
+  button[type="button"]:hover:not(:disabled),
+  button[type="submit"]:hover:not(:disabled) {
+    background-color: #084cd9;
+  }
+  @media (max-width: 480px) {
+    form {
+      padding: 15px 20px;
+    }
+  }
+
+  .text-rotator-container {
+  line-height: 48px;
+}
+
+    #aviso-cache {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: #222;
+      color: #fff;
+      padding: 15px;
+      text-align: center;
+      font-size: 14px;
+      display: none;
+      z-index: 9999;
+    }
+    #aviso-cache button {
+      margin-left: 10px;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .aceitar {
+      background: #4CAF50;
+      color: white;
+    }
+    .recusar {
+      background: #f44336;
+      color: white;
+    } 

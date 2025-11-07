@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Momentos: Transforme suas vendas com ótimas fotos!" />
+    <meta name="keywords" content="fotografia, app, galeria, fotógrafo, venda de fotos, QR Code" />
+    <meta name="author" content="Momentos" />
+    <title>Momentos - Transforme suas vendas com ótimas fotos!</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../photograph/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../photograph/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../photograph/img/favicon/favicon-16x16.png">
+
+    <link rel="stylesheet" type="text/css" href="../photograph/css/establishment.css">
+
+    <script
+        src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js"
+        type="module"
+      ></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="text-white text-white bg-black font-exo" style="background-image: url('../photograph/img/baixa/Topo2.webp'); background-repeat: no-repeat; background-size: contain; background-position: top;">
+
+    <!-- Seção Hero -->
+    <div class="flex flex-col h-screen px-4 bg-top justify-center items-center background-responsive">  
+      <div class="flex flex-col h-screen justify-between pt-12 md:pt-32 px-8">      
+        <div class="relative lg:flex lg:items-center lg:justify-center">
+          <img src="img/momentos.svg" class="w-72 md:w-auto h-auto" alt="Momentos" />
+        </div>
+
+        <!-- Main Text with Rotator -->
+          <h1 class="text-4xl lg:text-6xl font-bold mb-8">
+            Para o que você <br class="xl:hidden" />
+            imaginar, como 
+            <span class="text-rotator-container relative xl:mt-8 inline-block md:ml-2 items-center font-bold">
+            <!-- As palavras serão injetadas aqui pelo JS -->
+            </span>
+          </h1>
+
+        <div class="flex w-full items-center text-center flex-col">
+          <h2>Assita</h2>
+          <dotlottie-wc
+            src="https://lottie.host/ebc3d78c-7a89-4e2f-bef0-9393cbd8f10f/pkoHQu5Fu7.lottie"
+            style="width: 150px;height: 150px"
+            class="-mt-6"
+            speed="1"
+            autoplay
+            loop
+          ></dotlottie-wc>
+        </div>  
+      </div>
+       <dotlottie-wc
+            src="https://lottie.host/bad16e06-9fc7-4cad-913b-3e47fe22ccd9/Qi0CvYHUSX.lottie"
+            style="width: 8px; height: 100vh; position: absolute; top: 0; right:-2px;"
+            class="block md:hidden z-10"
+            speed="1"
+            autoplay
+            loop
+          ></dotlottie-wc>
+          <dotlottie-wc
+            src="https://lottie.host/a5d06bfb-4f6e-4b93-9403-3632004bca10/VJCYcNG8uj.lottie"
+            style="width: 18px;height: 1080px; position: absolute; top:-20; right: 0;"
+            class="hidden md:block z-10"
+            speed="1"
+            autoplay
+            loop
+          ></dotlottie-wc>
+    </div>
+    <section class="flex flex-col items-center text-center justify-center mb-32 z-20">
+
+      <section class="w-full h-auto items-center bg-white mb-24 z-20 items-center text-center justify-center flex flex-col">
+        <!-- Vídeo para desktop -->
+         <video playsInline autoPlay muted loop class="hidden md:block w-auto h-full relative z-20 right-0">
+          <source src="../photograph/videos/momentos.mp4" type="video/mp4">
+        </video>
+        <!-- Vídeo para mobile -->
+        <video playsInline autoPlay muted loop class="block md:hidden w-auto h-full relative z-20 right-0">
+          <source src="../photograph/videos/momentos_mobile.mp4" type="video/mp4">
+        </video>
+      </section>
+
+      <div class="gallery-container">
+        <div class="gallery" id="gallery"></div>
+      </div>
+
+      <audio controls class="mx-auto my-24 ">
+        <source src="img/audio.mp3" type="audio/mp3" />
+        O seu navegador não suporta a tag de áudio.
+      </audio>
+    </section>
+    
+  <section class="sticky flex flex-col justify-center items-center">
+
+      <div class="text-center mb-32 flex flex-col gap-6">
+        <p class="font-semibold text-4xl">Final de 2026…</p>
+        <p class="text-2xl">Fotógrafos frequentando<br /> estabelecimentos será <br class="block md:hidden" />uma realidade.</p>
+      </div>
+        
+      <form id="cadastroForm" novalidate aria-label="Formulário para cadastro de estabelecimento">
+        <h2 class="font-bold text-2xl">Faça sua inscrição</h2>
+
+        <div class="breadcrumb" role="tablist" aria-label="Navegação entre etapas do formulário">
+          <span role="tab" aria-selected="true" aria-controls="step1" id="tab1" class="active" tabindex="0" aria-label="Ir para etapa 1"></span>
+          <span role="tab" aria-selected="false" aria-controls="step2" id="tab2" tabindex="-1" aria-label="Ir para etapa 2"></span>
+        </div>
+
+        <div id="step1" class="step active" role="tabpanel" aria-labelledby="tab1">
+          <label for="nomeEstabelecimento">Nome do Estabelecimento</label>
+          <input type="text" id="nomeEstabelecimento" name="nomeEstabelecimento" required aria-required="true" aria-describedby="nomeEstabelecimentoError" />
+          <span class="error-message" id="nomeEstabelecimentoError">Por favor, informe o nome do estabelecimento.</span>
+
+          <label for="endereco">Endereço</label>
+          <input type="text" id="endereco" name="endereco" required aria-required="true" aria-describedby="enderecoError" />
+          <span class="error-message" id="enderecoError">Por favor, informe o endereço.</span>
+
+          <label for="cidade">Cidade</label>
+          <input type="text" id="cidade" name="cidade" required aria-required="true" aria-describedby="cidadeError" />
+          <span class="error-message" id="cidadeError">Por favor, informe a cidade.</span>
+
+          <label for="cep">CEP</label>
+          <input type="text" id="cep" name="cep" pattern="\\d{5}-?\\d{3}" placeholder="00000-000" required aria-required="true" aria-describedby="cepError" />
+          <span class="error-message" id="cepError">Por favor, informe um CEP válido (ex: 12345-678).</span>
+
+          <label for="tipo">Tipo de Estabelecimento</label>
+          <select id="tipo" name="tipo" required aria-required="true" aria-describedby="tipoError">
+            <option value="" disabled selected>Selecione o tipo</option>
+            <option value="restaurante">Restaurante</option>
+            <option value="loja">Loja</option>
+            <option value="clinica">Clínica</option>
+            <option value="academia">Academia</option>
+            <option value="hotel">Hotel</option>
+            <option value="outro">Outro</option>
+          </select>
+          <span class="error-message" id="tipoError">Por favor, selecione o tipo de estabelecimento.</span>
+        </div>
+
+        <div id="step2" class="step" role="tabpanel" aria-labelledby="tab2">
+          <label for="nomeResponsavel">Nome do Responsável</label>
+          <input type="text" id="nomeResponsavel" name="nomeResponsavel" required aria-required="true" aria-describedby="nomeResponsavelError" />
+          <span class="error-message" id="nomeResponsavelError">Por favor, informe o nome do responsável.</span>
+
+          <label for="posicao">Posição</label>
+          <input type="text" id="posicao" name="posicao" required aria-required="true" aria-describedby="posicaoError" />
+          <span class="error-message" id="posicaoError">Por favor, informe a posição.</span>
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="email@exemplo.com" required aria-required="true" aria-describedby="emailError" />
+          <span class="error-message" id="emailError">Por favor, informe um email válido.</span>
+
+          <label for="senha">Senha</label>
+          <input type="password" id="senha" name="senha" minlength="6" required aria-required="true" aria-describedby="senhaError" />
+          <span class="error-message" id="senhaError">A senha deve ter no mínimo 6 caracteres.</span>
+
+          <label for="repetirSenha">Repetir Senha</label>
+          <input type="password" id="repetirSenha" name="repetirSenha" minlength="6" required aria-required="true" aria-describedby="repetirSenhaError" />
+          <span class="error-message" id="repetirSenhaError">As senhas devem ser iguais.</span>
+        </div>
+
+        <div class="buttons" style="margin-top:10px;">
+          <button type="button" id="prevBtn" disabled aria-label="Voltar">Voltar</button>
+          <button type="button" id="nextBtn" aria-label="Próximo">Próximo</button>
+        </div>
+      </form>
+    </section>
+     <!-- Rodapé -->
+    <footer class="text-center mt-20 mb-6 text-sm text-gray-400">
+      Copyright for Momentos © <span id="year"></span>
+    </footer>
+
+    <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+
+    <script>
+      const elements = document.querySelectorAll('[data-animate-on-scroll]');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.remove('opacity-0', 'translate-y-12');
+            entry.target.classList.add('opacity-100', 'translate-y-0');
+          } else {
+            entry.target.classList.add('opacity-0', 'translate-y-12');
+            entry.target.classList.remove('opacity-100', 'translate-y-0');
+          }
+        });
+      }, { threshold: 0.3 });
+
+      elements.forEach(el => observer.observe(el));
+    </script>
+
+
+  <script>
+    class MultiWordTextRotator {
+      constructor(container, words, options = {}) {
+        this.container = typeof container === 'string' ? document.querySelector(container) : container;
+        this.words = words;
+        this.currentIndex = 0;
+        this.wordElements = [];
+        
+        this.options = {
+          interval: 2500, // Tempo entre rotações
+          useSolidColor: false, // Opção para usar cor sólida em vez de gradiente
+          ...options
+        };
+        
+        this.init();
+      }
+      
+      init() {
+        if (!this.container || !this.words.length) {
+          console.error('Container ou palavras não encontrados');
+          return;
+        }
+        
+        // Criar elementos para todas as palavras
+        this.words.forEach((word, index) => {
+          const wordElement = document.createElement('span');
+          wordElement.textContent = word;
+          wordElement.classList.add('text-rotator-word');
+          
+          // Adicionar classe para cor sólida se necessário
+          if (this.options.useSolidColor) {
+            wordElement.classList.add('solid-color');
+          }
+          
+          this.container.appendChild(wordElement);
+          this.wordElements.push(wordElement);
+        });
+        
+        // Posicionar palavras iniciais
+        this.updatePositions();
+        
+        // Iniciar rotação
+        this.startRotation();
+        
+        // Log para debug
+        console.log('TextRotator inicializado com', this.words.length, 'palavras');
+        console.log('Usando cor sólida:', this.options.useSolidColor);
+      }
+      
+      updatePositions() {
+        this.wordElements.forEach((element, index) => {
+          // Remove todas as classes de posição
+          element.classList.remove('far-previous', 'previous', 'current', 'next', 'far-next', 'hidden');
+          
+          // Calcula a posição relativa à palavra atual
+          let relativePosition = index - this.currentIndex;
+          
+          // Ajusta para array circular
+          if (relativePosition > this.words.length / 2) {
+            relativePosition -= this.words.length;
+          } else if (relativePosition < -this.words.length / 2) {
+            relativePosition += this.words.length;
+          }
+          
+          // Aplica a classe apropriada baseada na posição
+          if (relativePosition === -2) {
+            element.classList.add('far-previous');
+          } else if (relativePosition === -1) {
+            element.classList.add('previous');
+          } else if (relativePosition === 0) {
+            element.classList.add('current');
+          } else if (relativePosition === 1) {
+            element.classList.add('next');
+          } else if (relativePosition === 2) {
+            element.classList.add('far-next');
+          } else {
+            // Palavras muito distantes ficam invisíveis
+            element.classList.add('hidden');
+          }
+        });
+      }
+      
+      nextWord() {
+        this.currentIndex = (this.currentIndex + 1) % this.words.length;
+        this.updatePositions();
+      }
+      
+      startRotation() {
+        setInterval(() => {
+          this.nextWord();
+        }, this.options.interval);
+      }
+      
+      // Método para alternar entre gradiente e cor sólida
+      toggleColorMode() {
+        this.options.useSolidColor = !this.options.useSolidColor;
+        this.wordElements.forEach(element => {
+          if (this.options.useSolidColor) {
+            element.classList.add('solid-color');
+          } else {
+            element.classList.remove('solid-color');
+          }
+        });
+        console.log('Modo de cor alterado para:', this.options.useSolidColor ? 'sólida' : 'gradiente');
+      }
+    }
+
+    // Inicializar quando o DOM estiver carregado
+    document.addEventListener('DOMContentLoaded', function() {
+      const words = [
+        'restaurante.',
+        'loja.',
+        'escritório.', 
+        'clínica.',
+        'salão.',
+        'academia.',
+        'hotel.',
+        'café.'
+      ];
+      
+      // Detectar se o gradiente está funcionando
+      const testElement = document.createElement('span');
+      testElement.style.background = 'linear-gradient(45deg, #f59e0b, #ec4899)';
+      testElement.style.webkitBackgroundClip = 'text';
+      testElement.style.backgroundClip = 'text';
+      testElement.style.webkitTextFillColor = 'transparent';
+      testElement.textContent = 'test';
+      document.body.appendChild(testElement);
+      
+      const computedStyle = window.getComputedStyle(testElement);
+      const supportsGradient = computedStyle.webkitTextFillColor === 'transparent';
+      
+      document.body.removeChild(testElement);
+      
+      console.log('Suporte a gradiente de texto:', supportsGradient);
+      
+      const rotator = new MultiWordTextRotator('.text-rotator-container', words, {
+        interval: 2500,
+        useSolidColor: !supportsGradient // Usar cor sólida se gradiente não funcionar
+      });
+      
+      // Adicionar controle para alternar modo de cor (para debug)
+      window.rotator = rotator;
+      console.log('Para alternar entre gradiente e cor sólida, use: rotator.toggleColorMode()');
+    });
+  </script>
+
+
+<!-- Script para gerenciamento da seção de instalação -->
+    <script>
+      // Classe para gerenciar a seção de instalação
+      class InstallationManager {
+        constructor() {
+          this.androidBtn = document.getElementById('android-btn');
+          this.iosBtn = document.getElementById('ios-btn');
+          this.instaBtn = document.getElementById('insta-btn');
+          this.androidInstructions = document.getElementById('android-instructions');
+          this.iosInstructions = document.getElementById('ios-instructions');
+          this.instagramInstructions = document.getElementById('instagram-instructions');
+          this.installBtn = document.getElementById('install-btn');
+          
+          this.currentDevice = 'android'; // Padrão
+          
+          this.init();
+        }
+        
+        init() {
+          // Detectar dispositivo automaticamente
+          this.detectDevice();
+          
+          // Adicionar event listeners
+          this.androidBtn.addEventListener('click', () => this.switchToDevice('android'));
+          this.iosBtn.addEventListener('click', () => this.switchToDevice('ios'));
+          this.instaBtn.addEventListener('click', () => this.switchToDevice('instagram'));
+          this.installBtn.addEventListener('click', () => this.handleInstallClick());
+          
+          console.log('InstallationManager inicializado');
+          console.log('Dispositivo detectado:', this.currentDevice);
+        }
+        
+        detectDevice() {
+          const userAgent = navigator.userAgent.toLowerCase();
+          const isIOS = /iphone|ipad|ipod/.test(userAgent);
+          const isAndroid = /android/.test(userAgent);
+          
+          // Detectar navegador do Instagram
+          const isInstagram = this.detectInstagramBrowser(userAgent);
+          
+          if (isInstagram) {
+            this.currentDevice = 'instagram';
+            console.log('Navegador do Instagram detectado!');
+          } else if (isIOS) {
+            this.currentDevice = 'ios';
+          } else if (isAndroid) {
+            this.currentDevice = 'android';
+          } else {
+            // Para desktop ou outros dispositivos, manter Android como padrão
+            this.currentDevice = 'android';
+          }
+          
+          // Aplicar a detecção inicial
+          this.switchToDevice(this.currentDevice);
+        }
+        
+        detectInstagramBrowser(userAgent) {
+          // Padrões conhecidos do navegador in-app do Instagram
+          const instagramPatterns = [
+            /instagram/i,
+            /fban\/instagram/i,
+            /fbav\/instagram/i,
+            /instagram.*mobile/i,
+            /mobile.*instagram/i
+          ];
+          
+          // Verificar se algum padrão corresponde
+          const matchesPattern = instagramPatterns.some(pattern => pattern.test(userAgent));
+          
+          // Verificações adicionais para maior precisão
+          const hasInstagramFeatures = this.checkInstagramFeatures();
+          
+          // Log para debug
+          console.log('User Agent:', userAgent);
+          console.log('Matches Instagram pattern:', matchesPattern);
+          console.log('Has Instagram features:', hasInstagramFeatures);
+          
+          return matchesPattern || hasInstagramFeatures;
+        }
+        
+        checkInstagramFeatures() {
+          // Verificar se existem objetos ou métodos específicos do Instagram
+          try {
+            // O Instagram às vezes injeta objetos específicos no window
+            const hasInstagramObject = typeof window.InstagramWebView !== 'undefined' ||
+                                     typeof window.webkit?.messageHandlers?.instagram !== 'undefined' ||
+                                     typeof window.ReactNativeWebView !== 'undefined';
+            
+            // Verificar se há métodos específicos do Instagram
+            const hasInstagramMethods = typeof window.postMessage === 'function' &&
+                                       window.location.href.includes('instagram');
+            
+            return hasInstagramObject || hasInstagramMethods;
+          } catch (error) {
+            console.log('Erro ao verificar recursos do Instagram:', error);
+            return false;
+          }
+        }
+        
+        switchToDevice(device) {
+          this.currentDevice = device;
+          
+          // Atualizar botões
+          this.androidBtn.classList.remove('device-btn-active');
+          this.androidBtn.classList.add('device-btn-inactive');
+          this.iosBtn.classList.remove('device-btn-active');
+          this.iosBtn.classList.add('device-btn-inactive');
+          this.instaBtn.classList.remove('device-btn-active');
+          this.instaBtn.classList.add('device-btn-inactive');
+          
+          if (device === 'android') {
+            this.androidBtn.classList.remove('device-btn-inactive');
+            this.androidBtn.classList.add('device-btn-active');
+          } else if (device === 'ios') {
+            this.iosBtn.classList.remove('device-btn-inactive');
+            this.iosBtn.classList.add('device-btn-active');
+          } else if (device === 'instagram') {
+            this.instaBtn.classList.remove('device-btn-inactive');
+            this.instaBtn.classList.add('device-btn-active');
+          }
+          
+          // Animar transição das instruções
+          this.animateInstructionsChange(device);
+        }
+        
+        animateInstructionsChange(device) {
+          let currentInstructions, otherInstructions1, otherInstructions2;
+          
+          if (device === 'instagram') {
+            currentInstructions = this.instagramInstructions;
+            otherInstructions1 = this.androidInstructions;
+            otherInstructions2 = this.iosInstructions;
+          } else if (device === 'android') {
+            currentInstructions = this.androidInstructions;
+            otherInstructions1 = this.iosInstructions;
+            otherInstructions2 = this.instagramInstructions;
+          } else {
+            currentInstructions = this.iosInstructions;
+            otherInstructions1 = this.androidInstructions;
+            otherInstructions2 = this.instagramInstructions;
+          }
+          
+          // Fade out das outras instruções
+          [otherInstructions1, otherInstructions2].forEach(instructions => {
+            instructions.classList.add('fade-out');
+            instructions.classList.remove('fade-in');
+          });
+          
+          // Aguardar um pouco e então mostrar as novas instruções
+          setTimeout(() => {
+            [otherInstructions1, otherInstructions2].forEach(instructions => {
+              instructions.classList.add('hidden');
+            });
+            
+            currentInstructions.classList.remove('hidden');
+            
+            // Pequeno delay para garantir que o elemento está visível antes da animação
+            setTimeout(() => {
+              currentInstructions.classList.remove('fade-out');
+              currentInstructions.classList.add('fade-in');
+            }, 50);
+          }, 150);
+        }
+        
+        handleInstallClick() {
+          // Verificar se é um dispositivo móvel e se suporta PWA
+          if ('serviceWorker' in navigator && 'PushManager' in window) {
+            // Rolar suavemente para as instruções
+            this.scrollToInstructions();
+          } else {
+            // Fallback para dispositivos que não suportam PWA
+            window.open('https://momentos.art', '_blank');
+          }
+        }
+        
+        scrollToInstructions() {
+          const instructionsSection = document.querySelector('.max-w-4xl');
+          if (instructionsSection) {
+            instructionsSection.scrollIntoView({ 
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        }
+        
+        // Método público para alternar dispositivo (útil para debug)
+        toggleDevice() {
+          const devices = ['android', 'ios', 'instagram'];
+          const currentIndex = devices.indexOf(this.currentDevice);
+          const nextIndex = (currentIndex + 1) % devices.length;
+          this.switchToDevice(devices[nextIndex]);
+        }
+      }
+
+      // Inicializar quando o DOM estiver carregado
+      document.addEventListener('DOMContentLoaded', function() {
+        window.installManager = new InstallationManager();
+        
+        console.log('Seção de instalação carregada');
+        console.log('Para alternar dispositivo manualmente, use: installManager.toggleDevice()');
+      });
+      
+      // Detectar mudanças de orientação em dispositivos móveis
+      window.addEventListener('orientationchange', function() {
+        setTimeout(() => {
+          if (window.installManager) {
+            window.installManager.detectDevice();
+          }
+        }, 500);
+      });
+    </script>
+
+
+
+    <!--Galeria-->
+
+    <script>
+      const imageData = [
+        "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=300&h=500&q=80",
+        "https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=300&h=500&q=80",
+        "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=300&h=500&q=80",
+        "https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=300&h=500&q=80",
+        "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=300&h=500&q=80",
+        "https://images.unsplash.com/photo-1631248055158-edec7a3c072b?q=80&w=300&h=500&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=300&h=500&q=80",
+        "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=300&h=500&q=80"
+      ];
+
+      const gallery = document.getElementById("gallery");
+
+      // Criar imagens e duplicar para garantir fluidez infinita
+      function createImages(times = 3) {
+        for(let i = 0; i < times; i++) {
+          imageData.forEach(url => {
+            const wrapper = document.createElement("div");
+            wrapper.className = "img-wrapper";
+
+            const img = document.createElement("img");
+            img.src = url;
+
+            wrapper.appendChild(img);
+            gallery.appendChild(wrapper);
+          });
+        }
+      }
+
+      createImages(3);
+
+      // Observer para fade-in
+      const observer2 = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll(".img-wrapper").forEach(item => observer2.observe(item));
+
+      // Animação infinita suave manual com JS
+      let posX = 0;
+      let speed = 0.8; // Aumente para rodar mais rápido (ex: 1.5)
+
+      if (window.innerWidth < 768) {  
+        speed = 1.8; // velocidade maior no mobile
+      }
+
+      function animate() {
+        posX -= speed;
+        if(posX <= -gallery.scrollWidth / 3) {
+          posX = 0;
+        }
+        gallery.style.transform = `translateX(${posX}px)`;
+        requestAnimationFrame(animate);
+      }
+
+      animate();
+      </script>
+
+
+
+<!--FORMULARIO-->
+
+<script>
+  const form = document.getElementById('cadastroForm');
+  const steps = Array.from(document.querySelectorAll('.step'));
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const breadcrumbBtns = Array.from(document.querySelectorAll('.breadcrumb span'));
+
+  let currentStep = 0;
+
+  function showStep(index) {
+    steps.forEach((step, i) => {
+      step.classList.toggle('active', i === index);
+      breadcrumbBtns[i].classList.toggle('active', i === index);
+      breadcrumbBtns[i].setAttribute('aria-selected', i === index ? 'true' : 'false');
+      breadcrumbBtns[i].tabIndex = i === index ? 0 : -1;
+    });
+
+    prevBtn.disabled = index === 0;
+    nextBtn.textContent = index === steps.length - 1 ? 'Enviar' : 'Próximo';
+    currentStep = index;
+  }
+
+  function showError(input, show) {
+    if(show){
+      input.classList.add('error');
+      const errorMsg = document.getElementById(input.id + 'Error');
+      if(errorMsg) errorMsg.style.display = 'block';
+    } else {
+      input.classList.remove('error');
+      const errorMsg = document.getElementById(input.id + 'Error');
+      if(errorMsg) errorMsg.style.display = 'none';
+    }
+  }
+
+  function validateStep(step) {
+    let valid = true;
+
+    if(step === 0){
+      const campos = [
+        'nomeEstabelecimento',
+        'endereco',
+        'cidade',
+        'cep',
+        'tipo'
+      ];
+
+      campos.forEach(id => {
+        const input = form[id];
+        if(id === 'cep'){
+          const cepPattern = /^\d{5}-?\d{3}$/;
+          if(!cepPattern.test(input.value.trim())){
+            showError(input,true);
+            valid = false;
+          } else {
+            showError(input,false);
+          }
+        } else if (!input.value.trim()) {
+          showError(input,true);
+          valid = false;
+        } else {
+          showError(input,false);
+        }
+      });
+    }
+
+    if(step === 1){
+      const nomeResponsavel = form.nomeResponsavel;
+      const posicao = form.posicao;
+      const email = form.email;
+      const senha = form.senha;
+      const repetirSenha = form.repetirSenha;
+
+      if(!nomeResponsavel.value.trim()){
+        showError(nomeResponsavel,true);
+        valid = false;
+      } else {
+        showError(nomeResponsavel,false);
+      }
+
+      if(!posicao.value.trim()){
+        showError(posicao,true);
+        valid = false;
+      } else {
+        showError(posicao,false);
+      }
+
+      if(!email.validity.valid){
+        showError(email,true);
+        valid = false;
+      } else {
+        showError(email,false);
+      }
+
+      if(senha.value.length < 6){
+        showError(senha,true);
+        valid = false;
+      } else {
+        showError(senha,false);
+      }
+
+      if(repetirSenha.value !== senha.value || repetirSenha.value.length < 6){
+        showError(repetirSenha,true);
+        valid = false;
+      } else {
+        showError(repetirSenha,false);
+      }
+    }
+
+    return valid;
+  }
+
+  prevBtn.addEventListener('click', () => {
+    if(currentStep > 0){
+      showStep(currentStep - 1);
+    }
+  });
+
+  nextBtn.addEventListener('click', () => {
+    if(validateStep(currentStep)){
+      if(currentStep < steps.length - 1){
+        showStep(currentStep + 1);
+      } else {
+        // Submeter
+        if(validateStep(currentStep)){
+          alert('Cadastro enviado com sucesso!');
+          form.reset();
+          showStep(0);
+        }
+      }
+    }
+  });
+
+  breadcrumbBtns.forEach((btn, index) => {
+    btn.addEventListener('click', () => {
+      if(index <= currentStep || validateStep(currentStep)){
+        showStep(index);
+      }
+    });
+    btn.addEventListener('keydown', e => {
+      if(e.key === 'Enter' || e.key === ' '){
+        e.preventDefault();
+        btn.click();
+      }
+    });
+  });
+
+  // Validação em tempo real para sumir erro quando corrigir
+  const allInputs = form.querySelectorAll('input, select');
+  allInputs.forEach(input => {
+    input.addEventListener('input', () => {
+      // Só remove erro se o campo estiver válido
+      let valid = true;
+      if(input.id === 'cep'){
+        const cepPattern = /^\d{5}-?\d{3}$/;
+        valid = cepPattern.test(input.value.trim());
+      } else if(input.tagName.toLowerCase() === 'select'){
+        valid = input.value !== '';
+      } else if(input.type === 'email'){
+        valid = input.validity.valid;
+      } else if(input.id === 'repetirSenha'){
+        const senha = form.senha.value;
+        valid = input.value === senha && input.value.length >= 6;
+      } else if(input.id === 'senha'){
+        valid = input.value.length >= 6;
+      } else {
+        valid = input.value.trim() !== '';
+      }
+
+      showError(input, !valid);
+    });
+  });
+
+  showStep(0);
+</script>
+
+  </body>
+</html>

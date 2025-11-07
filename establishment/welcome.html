@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Momentos: Transforme suas vendas com ótimas fotos!" />
+  <title>Momentos - Bem-vindo!</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+      <script
+        src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js"
+        type="module" >
+    </script>
+  <style>
+    body { font-family: 'Exo', sans-serif; }
+    .preparo-box {
+      background: #121212;
+      padding: 60px 80px;
+      border-radius: 8px;
+      box-shadow: 0 2px 12px rgba(255,255,255,0.2);
+      color: #eee;
+      max-width: 580px;
+      width: 90%;
+      box-sizing: border-box;
+      margin: 0 auto; /* centralizar */
+    }
+    .preparo-box h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+    .preparo-box p {
+      line-height: 1.5;
+    }
+
+    body {
+      font-family: 'Exo', sans-serif;
+    }
+
+    .container-img {
+      margin: 0;
+      height: 100vh;
+      overflow: hidden;
+      z-index: 0;
+    }
+    .marquee-container {
+      position: fixed;
+      margin-top: -100px;
+      margin-bottom: -200px;
+      right: 0;
+      width: auto;
+      height: 150%;
+      overflow: hidden;
+      rotate: 20deg;
+      z-index: 0;
+    }
+
+    .marquee {
+      display: flex;
+      flex-direction: column;
+      animation: scroll 20s linear infinite;
+      z-index: 0;
+    }
+
+    .marquee img {
+      display: block;
+      width: auto;
+      height: auto;
+      margin-bottom: 25px;
+      z-index: 0;
+    }
+
+      @keyframes scroll {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(-50%);
+      }
+    }
+    
+    /* Animação de bounce personalizada */
+    @keyframes bounceScale {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.15);
+      }
+      70% {
+        transform: scale(1.05);
+      }
+      85% {
+        transform: scale(1.12);
+      }
+      100% {
+        transform: scale(1.1);
+      }
+    }
+    
+    .bounce-scale {
+      animation: bounceScale 1.5s ease-out forwards;
+    }
+  </style>
+</head>
+<body class="bg-black text-white flex flex-col" >
+  <section class="relative w-full flex min-h-screen items-center justify-center overflow-hidden bg-black text-white">
+ <!-- Vídeo de fundo à direita -->
+  <div class="container-img">
+    <div class="marquee-container">
+      <div class="marquee">
+        <img src="../photograph/img/Hero.png" alt="Hero">
+        <img src="../photograph/img/Hero.png" alt="Hero">
+      </div>
+    </div>
+  </div>
+  <dotlottie-wc
+    src="https://lottie.host/e6ded8b0-cb6c-4e75-a47d-a0e70ac0680b/FALsdo8l2p.lottie"
+
+    style="width: 8px; height: 100vh; position: absolute; right: 0px;"
+    class="z-50"
+    speed="1"
+    autoplay
+    loop
+  ></dotlottie-wc>
+
+  <div class="w-full text-center h-screen flex flex-col items-center justify-center space-y-8 md:space-y-12 relative z-10" style="background-image: url('../photograph/img/Topo2.png'); background-repeat: no-repeat; background-size: contain; background-position: top;">
+
+    <!-- Logo animada -->
+    <img src="img/momentos.svg" alt="Logo" class="mx-auto w-72 md:w-80 animate__animated animate__fadeInDown">
+
+    <!-- Mensagem de boas-vindas -->
+    <div class="space-y-4">
+      <h1 class="text-gray-300 text-lg md:text-xl animate__animated animate__fadeIn">
+        Obrigado por se cadastrar! <br>
+        Aguarde o <span class="font-bold text-white">lançamento oficial</span> do nosso app.
+      </h1>
+    </div>
+
+    <!-- Passo a passo estilizado -->
+    <div class="space-y-4 relative z-10">
+      <div class="preparo-box">
+        <h2 class="text-xl md:text-2xl font-semibold mb-2">📲 Como se preparar:</h2>
+        <ol class="list-decimal list-inside text-gray-300 space-y-2 md:space-y-3">
+          <li>Instale a aplicação (Adicionando o PWA).</li>
+          <li>Ative notificações para novidades.</li>
+          <li>Fique pronto para o lançamento oficial.</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Instagram estilizado -->
+    <div class="mt-6 animate__animated animate__fadeInUp">
+        <a href="https://www.instagram.com/app.momentos" target="_blank" 
+       class="h-[64px] flex items-center px-8 rounded-full 
+              bg-gradient-to-br from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] 
+              text-white text-xl no-underline 
+              transition-transform duration-200 ease-in-out 
+              shadow-lg hover:translate-y-[-3px] hover:shadow-xl">
+          <svg class="w-[35px] h-[35px] mr-2 fill-white" viewBox="0 0 24 24">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.204-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.012-3.584.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.073 4.948.073 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.44-.645 1.44-1.44s-.645-1.44-1.44-1.44z"/>
+          </svg>
+          <span class="font-semibold ml-4">/app.momentos</span>
+        </a>
+    </div>
+
+  </div>
+</section>
+</body>
+</html>
