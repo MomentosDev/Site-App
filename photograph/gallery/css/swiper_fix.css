@@ -1,0 +1,43 @@
+/*
+ * Correção CSS AGRESSIVA para o Swiper:
+ * Esta correção é projetada para funcionar com o 'effect: "slide"' padrão
+ * e forçar o slide ativo a cobrir completamente o slide anterior,
+ * eliminando o efeito de sobreposição.
+ */
+
+/* 1. Garante que todos os slides tenham um contexto de empilhamento */
+.swiper-slide {
+    z-index: 1;
+    /* Garante que o slide não seja transparente, o que pode revelar o slide anterior */
+    background-color: #000; /* Altere para a cor de fundo real dos seus slides, se for diferente */
+}
+
+/* 2. Força o slide ativo a ter o z-index mais alto */
+.swiper-slide-active {
+    z-index: 100 !important; /* Valor muito alto para garantir a prioridade */
+    opacity: 1 !important; /* Garante que o slide ativo esteja totalmente visível */
+}
+
+/* 3. Garante que o slide anterior (que está saindo) seja invisível */
+.swiper-slide-prev {
+    /* O Swiper deve lidar com isso, mas forçamos a opacidade para zero durante a transição */
+    opacity: 0;
+    /* Reduz o z-index para garantir que o slide ativo o cubra */
+    z-index: 50;
+}
+
+/* 4. Regra para o slide que está entrando (next) */
+.swiper-slide-next {
+    z-index: 50;
+}
+
+/* 5. Regra para slides que não estão ativos, prev ou next */
+.swiper-slide:not(.swiper-slide-active):not(.swiper-slide-prev):not(.swiper-slide-next) {
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+/* 6. Correção para o container do Swiper, se necessário */
+.swiper-container {
+    overflow: hidden; /* Garante que nada vaze para fora do container */
+}

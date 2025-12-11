@@ -6,7 +6,7 @@
     <meta name="description" content="Momentos: Transforme suas vendas com ótimas fotos!" />
     <meta name="keywords" content="fotografia, app, galeria, fotógrafo, venda de fotos, QR Code" />
     <meta name="author" content="Momentos" />
-    <title>Momentos - Transforme suas vendas com ótimas fotos!</title>
+    <title>Momentos - O primeiro aplicativo do mundo voltado para a atuação do fotógrafo de rua.</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,6 +35,7 @@
     html, body {
       overflow-x: hidden; /* proibir scroll horizontal */
       max-width: 100vw !important;   /* garantir que nada fique mais largo que a tela */
+      background: #000;
     }
     body {
       font-family: 'Exo', sans-serif;
@@ -110,7 +111,7 @@
   <body class="bg-black text-white font-exo">
 
 <!-- Hero Section -->
-<section class="relative flex h-[100svh] items-center justify-center md:px-6 py-4 overflow-hidden bg-black text-white">
+<section class="relative flex h-[100svh] items-center justify-center md:px-6 py-4 2xl:px-2 overflow-hidden bg-black text-white">
 
   <!-- Imagem de fundo à direita -->
   <div class="container-img">
@@ -123,8 +124,7 @@
   </div>
   <dotlottie-wc
     src="https://lottie.host/e6ded8b0-cb6c-4e75-a47d-a0e70ac0680b/FALsdo8l2p.lottie"
-
-    style="width: 8px; height: 104vh; position: absolute; right: 0px;"
+    style="width: 8px; height: 108vh; position: absolute; right: 0px;"
     class="block relative md:hidden z-50"
     speed="1"
     autoplay
@@ -134,10 +134,10 @@
   <div class="fixed top-0 overflow-hidden inset-0 z-10" style="background-image: url('photograph/img/baixa/Topo2.webp'); background-position: top; background-size: contain; background-repeat: no-repeat;"></div>
 
   <!-- Conteúdo principal -->
-  <div class="justify-center z-20 -mt-16 md:mt-12 flex-col gap-8 max-w-6xl self-center items-center lg:items-start sm:px-24 text-center lg:text-left">
+  <div class="justify-center z-20 -mt-16 md:mt-12 flex-col gap-8 max-w-6xl self-center items-center lg:items-start sm:px-24 2xl:px-0 text-center lg:text-left">
     <div class="lg:flex lg:flex-row justify-center items-center gap-20 mt-8 lg:-mt-24">
       <!-- Logo -->
-      <div class="md:-mt-36">
+      <div class="md:-mt-36 2xl:-mt-44">
         <h1 class="text-4xl font-bold flex items-center mx-6 lg:mx-0 justify-center lg:justify-start gap-2">
           <img src="photograph/img/momentos.svg" class="w-full lg:w-full h-auto" alt="Momentos" />
         </h1>
@@ -145,12 +145,12 @@
 
       <!-- Imagem do celular -->
       <div class="flex justify-center md:justify-start">
-        <img src="photograph/img/baixa/aplicativo_momentos.webp" alt="App Login" class="max-w-[400px] xl:max-w-md z-10" />
+        <img src="photograph/img/baixa/aplicativo_momentos.webp" alt="App Login" class="max-w-[400px] xl:max-w-md 2xl:max-w-xl z-10" />
       </div>
     </div>
     <!-- Botão de instalação -->
     <div class="lg:-mt-40 hidden lg:block">
-      <p class="text-2xl max-w-md mb-4 bg-gradient-to-r from-yellow-500 to-pink-600 bg-clip-text text-transparent">Confira o APP que irá transformar sua relação com a fotografia!</p>
+      <p class="text-2xl 2xl:text-3xl max-w-md mb-4 bg-gradient-to-r from-yellow-500 to-pink-600 bg-clip-text text-transparent">O primeiro aplicativo do mundo voltado para a atuação do fotógrafo de rua.</p>
     </div>
   </div>
 </section>
@@ -159,14 +159,14 @@
     <dotlottie-wc
           src="https://lottie.host/ebc3d78c-7a89-4e2f-bef0-9393cbd8f10f/pkoHQu5Fu7.lottie"
           style="width: 150px;height: 150px"
-          class="mx-auto"
+          class="mx-auto z-80"
           speed="1"
           autoplay
           loop
         ></dotlottie-wc>
   </div>
   <!-- Linha Horizontal para desktop-->
-  <div class="w-full h-[16px]">
+  <div class="w-full h-[16px] -mt-4 hidden md:block">
    <dotlottie-wc
           src="https://lottie.host/a5cc1acf-8061-4f67-84ee-b54f1a400114/gTxmbNUJeB.lottie"
           style="width: 800px;height: 16px"
@@ -177,7 +177,7 @@
         ></dotlottie-wc>
         </div>
 <!-- Ajuste para sombra-->
-<div class="block relative md:hidden h-[50px] w-full relative z-10 bg-[url('./photograph/img/bg-gradient-black.png')]" >
+<div class="block -mt-12 relative md:hidden h-[50px] w-full relative z-50 bg-[url('./photograph/img/bg-gradient-black.png')]" >
   <p><br/></p>
 </div>
     <!-- Seletor de perfil -->

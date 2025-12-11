@@ -3,6 +3,7 @@ body {
   font-family: 'Exo', sans-serif;
   overflow: auto !important;
   position: static !important;
+  background: #000;
 }
 
 html, body {
@@ -198,7 +199,7 @@ button.device-btn-active {
   text-align: center;
   width: 100%;
   height: 100px;
-  line-height: 100px;
+  line-height: 140px;
 }
 
 .loading-text span {
@@ -275,3 +276,66 @@ header.background-gif {
   background-position: center; 
   background-repeat: no-repeat;
 }
+
+.swiper-container .swiper-wrapper { display: flex; }
+.swiper-container .swiper-slide { position: relative; flex: 0 0 100%; box-sizing: border-box; }
+
+
+/* estilos mínimos para a linha/underline animada */
+.ios-version-btn {
+  color: #E6E6E6;
+  background: transparent;
+}
+.ios-version-btn[aria-pressed="true"] {
+  color: white;
+}
+.ios-underline {
+  background: linear-gradient(90deg, #FFD54A, #FF6B8A);
+  transition: opacity .18s ease, transform .18s ease;
+  transform: scaleX(0);
+  transform-origin: left center;
+  opacity: 0;
+}
+.ios-version-btn[aria-pressed="true"] .ios-underline {
+  transform: scaleX(1);
+  opacity: 1;
+}
+@media (max-width: 640px) {
+  #ios-version-container nav { gap: 8px; }
+  .ios-version-btn { font-size: 14px; padding-bottom: .4rem; }
+}
+
+
+/* -------------------------------
+   UNDERLINE DO MENU PRINCIPAL
+   (Android / iOS / Instagram)
+   ------------------------------- */
+
+/* garante position:relative para todas as variações de classe do botão */
+.device-btn,
+.device-btn-active,
+.device-btn-inactive {
+  position: relative !important;
+}
+
+/* Underline posicionado em relação ao botão (não ao body) */
+.main-underline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;        /* deixa a linha um pouco abaixo do conteúdo do botão */
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: opacity .22s ease, transform .22s ease;
+}
+
+/* mostra quando aria-pressed=true (independente da classe do botão) */
+[aria-pressed="true"] .main-underline {
+  opacity: 1;
+  transform: scaleX(1);
+}
+

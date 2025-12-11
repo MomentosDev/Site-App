@@ -112,7 +112,10 @@ function Menu() {
             keyboard: true,
             simulateTouch: false,
             parallax: false,
-            effect: 'slide',
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true // Garante que o slide anterior desapareça antes do novo aparecer
+            },
             pagination: {
                 el: '.swiper-pagination',
                 type: 'progressbar',
@@ -130,7 +133,7 @@ function Menu() {
 
             }
     }
-
+            
 /*------------------
  Sort
 -------------------*/

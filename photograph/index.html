@@ -28,6 +28,7 @@
     <!-- Custom CSS File -->
     <link rel="stylesheet" type="text/css" href="gallery/css/style.css">
     <link rel="stylesheet" type="text/css" href="css/photograph.css">
+    <link rel="stylesheet" type="text/css" href="gallery/css/swiper_fix.css">
 
     <script
         src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js"
@@ -56,11 +57,11 @@
         <!-- Conteúdo principal -->
 
         <div class="relative flex flex-col items-center justify-center h-screen w-full text-center px-4 background-responsive z-10"> 
-          <div class="absolute top-16 xl:top-20">
-            <img src="img/momentos.svg" class="w-72 md:w-full h-auto" alt="Momentos APP" />
+          <div class="absolute top-16 xl:top-20 2xl:top-28">
+            <img src="img/momentos.svg" class="w-72 md:w-full 2xl:w-[550px] h-auto" alt="Momentos APP" />
           </div>
           <h1 class="block md:hidden text-3xl font-bold font-exo text-white mb-4">Você cuida <br />dos cliques,<br />a gente cuida <br />do resto.</h1>
-          <h1 class="hidden md:block text-5xl font-bold font-exo text-white mb-4">Você cuida dos cliques,<br />a gente cuida do resto.</h1>
+          <h1 class="hidden md:block text-5xl 2xl:text-6xl font-bold font-exo text-white mb-4">Você cuida dos cliques,<br />a gente cuida do resto.</h1>
           <dotlottie-wc
             src="https://lottie.host/ebc3d78c-7a89-4e2f-bef0-9393cbd8f10f/pkoHQu5Fu7.lottie"
             style="width: 150px;height: 150px"
@@ -77,11 +78,8 @@
           <section class="w-full h-auto items-center bg-white">
 
             <!-- Gif para desktop -->
-            <img src="img/momentos.gif" type="video/mp4" class="hidden md:block w-full h-auto" />
-          
-            <!-- Gif para mobile -->
-            <img src="img/momentos_mobile.gif" type="video/mp4" class="block md:hidden w-full h-auto" />
-      
+             <video id="hls-video" muted loop playsinline preload="auto"></video>
+      <span id="video-source" class="sr-only"></span>
           </section>
           <section class="bg-black h-8 p-4"><div></div></section>
     
@@ -121,10 +119,10 @@
                   </div>
                 </div>
                 <div class="slide-inner--info"> 
-                  <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-yellow-500 to-pink-800 bg-clip-text text-transparent ">
+                  <h2 class="text-4xl md:text-5xl 2xl:text-6xl font-bold bg-gradient-to-r from-yellow-500 to-pink-800 bg-clip-text text-transparent ">
                     Seu estúdio <br /> a céu aberto.
                   </h2>
-                  <p class="mt-2 text-xl md:text-2xl text-white">
+                  <p class="mt-2 text-xl md:text-2xl 2xl:text-3xl text-white">
                     Selecione a região de atuação <br />e reserve o seu espaço. <br />Vá até o local e aborde as pessoas.</br>
                   </p> 
                 </div>
@@ -144,10 +142,10 @@
                   </div>
                 </div>
                 <div class="slide-inner--info">
-                  <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-yellow-500 to-pink-800 bg-clip-text text-transparent ">
+                  <h2 class="text-4xl md:text-5xl 2xl:text-6xl font-bold bg-gradient-to-r from-yellow-500 to-pink-800 bg-clip-text text-transparent ">
                     A mágica acontece <br/> em 12 minutos
                   </h2>
-                  <p class="mt-2 text-xl md:text-2xl text-white">
+                  <p class="mt-2 text-xl md:text-2xl 2xl:text-3xl text-white">
                     Mostre o QR Code. <br/>  Deixe o cliente escanear e receber <br/> as fotos em até 12 minutos.
                   </p>
                 </div>
@@ -167,10 +165,10 @@
                   </div>
                 </div>
                 <div class="slide-inner--info">
-                  <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-yellow-500 to-pink-800 bg-clip-text text-transparent">
+                  <h2 class="text-4xl md:text-5xl 2xl:text-6xl font-bold bg-gradient-to-r from-yellow-500 to-pink-800 bg-clip-text text-transparent">
                     Organização <br />inteligente
                   </h2>
-                  <p class="mt-2 text-xl md:text-2xl  text-white">
+                  <p class="mt-2 text-xl md:text-2xl 2xl:text-3xl text-white">
                     A IA organiza as fotos e  <br />cria uma galeria exclusiva,  <br />acessível só para o cliente.
                   </p>
                 </div>
@@ -190,10 +188,10 @@
                   </div>
                 </div>
                 <div class="slide-inner--info">
-                  <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-yellow-500 to-pink-800 bg-clip-text text-transparent ">
+                  <h2 class="text-4xl md:text-5xl 2xl:text-6xl font-bold bg-gradient-to-r from-yellow-500 to-pink-800 bg-clip-text text-transparent ">
                     Ganhos reais
                   </h2>
-                  <p class="mt-2 text-xl md:text-2xl text-white">
+                  <p class="mt-2 text-xl md:text-2xl 2xl:text-3xl text-white">
                     Receba pelas contribuições de <br /> cada momento eternizado.
                   </p>
                 </div>
@@ -213,10 +211,10 @@
                   </div>
                 </div>
                 <div class="slide-inner--info">
-                  <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-yellow-500 to-pink-800 bg-clip-text text-transparent ">
+                  <h2 class="text-4xl md:text-5xl 2xl:text-6xl font-bold bg-gradient-to-r from-yellow-500 to-pink-800 bg-clip-text text-transparent ">
                       CASHBACK DE DADOS
                   </h2>
-                  <br class="mt-2 text-xl md:text-2xl text-white">
+                  <br class="mt-2 text-xl md:text-2xl 2xl:text-3xl text-white">
                     A cada 1 GB enviado, R$1 retorna para </br>você no final do mês.
                   </p>
                 </div>
@@ -236,10 +234,10 @@
                   </div>
                 </div>
                 <div class="slide-inner--info">
-                  <h2 class="text-4xl md:text-5xl  font-bold bg-gradient-to-r from-yellow-500 to-pink-800 bg-clip-text text-transparent ">
+                  <h2 class="text-4xl md:text-5xl 2xl:text-6xl font-bold bg-gradient-to-r from-yellow-500 to-pink-800 bg-clip-text text-transparent ">
                     Viva da sua arte
                   </h2>
-                  <p class="mt-2 text-xl md:text-2xl text-white">Capture momentos. <br/>Entregue registros de luz e tempo.</p>
+                  <p class="mt-2 text-xl md:text-2xl 2xl:text-3xl text-white">Capture momentos. <br/>Entregue registros de luz e tempo.</p>
                 </div>
               </div>
             </div> 
@@ -257,10 +255,10 @@
                   </div>
                 </div>
                 <div class="slide-inner--info">
-                  <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-yellow-500 to-pink-800 bg-clip-text text-transparent ">
+                  <h2 class="text-4xl md:text-5xl 2xl:text-6xl font-bold bg-gradient-to-r from-yellow-500 to-pink-800 bg-clip-text text-transparent ">
                     Comece agora
                   </h2>
-                  <p class="text-xl md:text-2xl text-white ">
+                  <p class="text-xl md:text-2xl 2xl:text-3xl text-white ">
                     Baixe o app e inscreva-se.
                   </p>
                 </div>
@@ -273,7 +271,7 @@
               <span class="block md:hidden text-5xl">
                 <dotlottie-wc
                         src="https://lottie.host/06666a6b-6799-4ff3-8010-ed11eec849ea/CinHCNIc1l.lottie"
-                        style="width: 60px;height: 60px; rotate:90deg;"
+                        style="width: 70px;height: 70px; rotate:90deg;"
                         speed="1"
                         autoplay
                       ></dotlottie-wc>
@@ -284,7 +282,7 @@
               <span class="block md:hidden text-5xl">
                 <dotlottie-wc
                         src="https://lottie.host/06666a6b-6799-4ff3-8010-ed11eec849ea/CinHCNIc1l.lottie"
-                        style="width: 60px;height: 60px; rotate:270deg; "
+                        style="width: 70px;height: 70px; rotate:270deg; "
                         speed="1"
                         autoplay
                       ></dotlottie-wc>
@@ -299,51 +297,49 @@
       </main>
 
 <!-- SECTION INTEGRAÇÕES -->
-<section class="py-20 bg-black text-white">
-  <div class="container mx-auto px-4 flex flex-col gap-20 text-center">
+<section class="py-8 md:py-20 bg-black text-white">
+  <div class="container mx-auto px-4 flex flex-col gap-16 md:gap-20 text-center">
     
     <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-yellow-500 to-pink-800 bg-clip-text text-transparent">
       Integrações do Aplicativo:
     </h2>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 justify-items-center">
+    <div class="grid grid-cols-3  gap-5 justify-items-center">
       
       <!-- Quorum -->
       <div class="flex flex-col items-center gap-4">
         <div class="flex items-center justify-center gap-4 bg-white/5 p-2 rounded-2xl">
-          <img src="img/Canon.svg" alt="Canon" class="h-28 w-28 object-contain">
+          <img src="img/Canon.svg" alt="Canon" class="h-20 w-20 md:h-28 md:w-28 object-contain">
         </div>
-        <span class="text-xl font-medium mt-2">Canon</span>
+        <span class="md:text-xl font-medium mt-2">Image.Canon</span>
       </div>
 
       <!-- SnapBridge + Nikon -->
       <div class="flex flex-col items-center gap-4">
         <div class="flex items-center justify-center gap-6 bg-white/5  p-2 rounded-2xl">
-          <img src="img/SnapBridge-APP.png" alt="Logo SnapBridge" class="h-28 w-28 object-contain">
+          <img src="img/SnapBridge-APP.png" alt="Logo SnapBridge" class="h-20 w-20 md:h-28 md:w-28 object-contain">
         </div>
-        <span class="text-xl font-medium mt-2">SnapBridge + Nikon</span><span class="text-sm text-gray-300">(Android)</span>
+        <div class="flex flex-col items-center gap-1 md:gap-4">
+        <span class="md:text-xl font-medium mt-2">SnapBridge</span>
+        <span class="text-xs uppercase text-gray-300">(Somente Android)</span>
+        </div>
       </div>
 
       <!-- Sony -->
       <div class="flex flex-col items-center gap-4">
         <div class="flex items-center justify-center gap-4 bg-white/5 p-2 rounded-2xl">
-          <img src="img/SonyCreatorAPP.webp" alt="Logo Sony" class="h-28 w-28 object-contain">
+          <img src="img/CreatorAPP2.png" alt="Logo Sony" class="h-20 w-20 md:h-28 md:w-28 object-contain">
         </div>
-        <span class="text-xl font-medium mt-2">Sony | Creators' App</span>
+        <span class="md:text-xl font-medium mt-2">Creators' App</span>
       </div>
 
     </div>
 
-    <p class="text-gray-400 mt-8 text-sm">Outras integrações serão adicionadas nas próximas versões.</p>
+    <p class="text-gray-400 mt-8 text-xs md:text-sm">Outras integrações serão adicionadas nas próximas versões.</p>
   </div>
 </section>
-
-
-
-
-    <!-- Botão instalar -->
     <!-- Seção de Instalação -->
-      <section class="sticky bg-black pt-24 pb-12 px-6 text-center min-h-screen flex flex-col justify-center z-40">
+      <section class="sticky bg-black pt-24 pb-12 px-6 text-center flex flex-col justify-center z-40">
 
         <!-- Seção Como Instalar -->
         <div class="max-w-4xl mx-8 md:mx-auto">
@@ -362,16 +358,19 @@
               <button id="android-btn" 
                       class="flex flex-row device-btn-active py-2 font-semibold text-lg md:text-end md:self-end">
                 <span class="hidden md:block mr-1">Meu dispositivo é </span> Android
+                <span class="main-underline absolute left-0 right-0 bottom-0 h-1 opacity-0"></span>
               </button>
               <div class="border-l-2 md:border-l-0 md:border-t-2"></div>
               <button id="ios-btn" 
                       class="device-btn device-btn-inactive py-2 flex font-semibold text-lg md:text-end md:self-end">
                 <span class="hidden md:block mr-1">Meu dispositivo é </span> iOS
+                <span class="main-underline absolute left-0 right-0 bottom-0 h-1 opacity-0"></span>
               </button>
               <div class="border-l-2 md:border-l-0 md:border-t-2"></div>
               <button id="insta-btn" 
                       class="device-btn device-btn-inactive py-2 flex font-semibold text-lg md:text-end md:self-end">
                 <span class="hidden md:block mr-1">Estou no </span> Instagram
+                <span class="main-underline absolute left-0 right-0 bottom-0 h-1 opacity-0"></span>
               </button>
             </div>
 
@@ -379,87 +378,116 @@
             <div class="text-left md:border-l-2">
               
               <!-- Instruções Android -->
-              <div id="android-instructions" class="fade-transition fade-in ml-12">
+              <div id="android-instructions" class="fade-transition fade-in md:ml-12">
+                <!-- Botão de Instalação Principal -->
+                <div class="mb-2 mt-24">
+                  <button id="install-btn" 
+                      class="inline-flex items-center px-8 py-4 border-2 border-yellow-500 rounded-full gap-8
+                            font-semibold text-lg transition-all duration-300 transform hover:scale-105">
+                    <!-- Ícone de Download -->
+                    <div class="download-icon">
+                      <img src="img/download.svg">
+                    </div>
+                    <div class="text-left">
+                      <div class="text-sm text-gray-300">Clique aqui e</div>
+                      <div class="text-lg font-bold">Instale o aplicativo</div>
+                    </div>
+                  </button>
+                </div>
+              </div>
+
+              <!-- TOGGLE DE VERSÃO iOS (colocado dentro da coluna de instruções, acima dos textos) -->
+              <div id="ios-version-container" class="ml-12 hidden pb-4">
+                <nav aria-label="Escolha versão iOS" class="flex gap-4 items-end justify-start pb-2">
+                  <button id="ios-version-new" 
+                          class="ios-version-btn text-base font-semibold pb-2 mr-6 relative"
+                          aria-pressed="false" type="button">
+                    iOS 26
+                    <span class="ios-underline absolute left-0 right-0 bottom-0 h-0.5 opacity-0"></span>
+                  </button>
+
+                  <button id="ios-version-old" 
+                          class="ios-version-btn text-base font-semibold pb-2 relative"
+                          aria-pressed="false" type="button">
+                    iOS 25 e anteriores
+                    <span class="ios-underline absolute left-0 right-0 bottom-0 h-0.5 opacity-0"></span>
+                  </button>
+                </nav>
+              </div>
+
+
+              <!-- Instruções iOS 26-->
+              <div id="ios-instructions" class="fade-transition fade-out hidden ml-12">
                 <ol class="space-y-4 text-lg">
-                  <li class="flex items-start">
-                    
+                  <li class="flex items-start mb-2">
                     <div>
-                      <span>1. No dispositivo Android, abra o Chrome </span>
-                      <span class="inline-flex items-center">
-                        <img src="img/i-chorme.png" class="w-4" />
-                      </span>
+                      <span>1. Selecione os 3 pontinhos próximo ao endereço do site: </span>
+                      <img alt="1º passo instalação" src="img/install-ios26-01.png" class="w-2/3"/>
+                    </div>
+                  </li>
+                  
+                  <li class="flex items-start mb-2">
+                    <div>
+                    <div>2. Selecione no menu o botão de Compartilhar.</div>
+                    <img alt="2º passo instalação, Compartilhar" src="img/install-ios26-02.png" class="w-3/5"/>
+                    </div>
+                  </li>
+
+                  <li class="flex items-start mb-2">
+                    <div>
+                      <span>3. Selecione os 3 pontinhos "Mais": </span>
+                      <img alt="3º passo instalação Mais" src="img/install-ios26-03.png" class="w-2/3"/>
                     </div>
                   </li>
                   
                   <li class="flex items-start">
                     <div>
-                      2. Acesse o site 
-                      <a href="https://app.momentos.art" target="_blank" class="text-blue-400 hover:text-blue-300 underline font-semibold">app.momentos.art</a>
+                    <div>4. Econtre "Adicionar à Tela de Início".</div>
+                    <img alt="4º passo instalação, Compartilhar" src="img/install-ios26-04.png" class="w-2/3"/>
                     </div>
                   </li>
-                  
+
                   <li class="flex items-start">
                     <div>
-                      3. À direita da barra de endereço, toque em Mais 
-                      <span class="inline-flex items-center mx-1">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <circle cx="12" cy="5" r="2" fill="currentColor"/>
-                          <circle cx="12" cy="12" r="2" fill="currentColor"/>
-                          <circle cx="12" cy="19" r="2" fill="currentColor"/>
-                        </svg>
-                      </span>
-                      e então Adicionar à tela inicial e então Instalar.
+                      <span>5. Confirme tocando em “Adicionar”.</span>
                     </div>
-                  </li>
-                  
-                  <li class="flex items-start">
-                    <div>4. Siga as instruções na tela.</div>
                   </li>
                 </ol>
               </div>
 
-              <!-- Instruções iOS -->
-              <div id="ios-instructions" class="fade-transition fade-out hidden ml-12">
+              <!-- Instruções iOS Antigo (iOS 25 ou menor) -->
+              <div id="ios-old-instructions" class="fade-transition fade-out hidden ml-12">
                 <ol class="space-y-4 text-lg">
                   <li class="flex items-start">
                     <div>
-                      <span>1. No dispositivo iOS, abra o Safari </span>
-                      <span class="inline-flex items-center">
-                        
-                        <img src="img/i-safari.png" class="w-5">
-                      </span>
+                      <span>1. No Safari, toque no ícone de compartilhamento.</span>
+                      <img alt="1º passo instalação" src="img/install-iosOld-01.png" class="w-2/3"/>
                     </div>
                   </li>
-                  
+
                   <li class="flex items-start">
                     <div>
-                      2. Acesse o site 
-                      <a href="https://app.momentos.art" target="_blank" class="text-blue-400 hover:text-blue-300 underline font-semibold">app.momentos.art</a>
+                      <span>2. Role até encontrar “Adicionar à Tela de Início”.</span>
+                      <img alt="2º passo instalação" src="img/install-iosOld-02.png" class="w-2/3"/>
                     </div>
                   </li>
-                  
+
                   <li class="flex items-start">
                     <div>
-                      3. Toque no botão de compartilhamento 
-                      <span class="inline-flex items-center mx-1">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M12 2L12 15M12 2L8 6M12 2L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                          <path d="M22 12L22 20C22 21 21 22 20 22L4 22C3 22 2 21 2 20L2 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                      </span>
-                      na parte inferior da tela.
+                      <span>3. Confirme tocando em “Adicionar”.</span>
                     </div>
                   </li>
-                  
+
                   <li class="flex items-start">
-                    <div>4. Role para baixo e toque em "Adicionar à Tela de Início".</div>
-                  </li>
-                  
-                  <li class="flex items-start">
-                    <div>5. Toque em "Adicionar" no canto superior direito.</div>
+                    <div>
+                      <span class="text-sm opacity-80">
+                        *Essas instruções são para iOS 25 ou anteriores.
+                      </span>
+                    </div>
                   </li>
                 </ol>
               </div>
+
 
               <!-- Instruções Instagram -->
               <div id="instagram-instructions" class="fade-transition fade-out hidden">
@@ -498,36 +526,13 @@
                     
                     <div class="flex items-start">
                       <div class="text-white text-sm">
-                        3. O site será aberto no seu navegador padrão. Acesse 
-                        <a href="https://app.momentos.art" target="_blank" class="text-blue-300 underline font-semibold">app.momentos.art</a>
-                        novamente.
-                      </div>
-                    </div>
-                    
-                    <div class="flex items-start">
-                      <div class="text-white text-sm">4. Siga as instruções de instalação para o seu dispositivo (Android ou iOS).</div>
+                        3. Siga as instruções de instalação para o seu dispositivo (Android ou iOS).</div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-            
-        <!-- Botão de Instalação Principal -->
-        <div class="mb-2 mt-24">
-          <button id="install-btn" 
-              class="inline-flex items-center px-8 md:px-16 py-4 border-2 border-yellow-500 rounded-full gap-8
-                    font-semibold text-lg transition-all duration-300 transform hover:scale-105">
-            <!-- Ícone de Download -->
-            <div class="download-icon">
-              <img src="img/download.svg">
-            </div>
-            <div class="text-left">
-              <div class="text-sm text-gray-300">Abra a PWA</div>
-              <div class="text-lg font-bold">Instale o aplicativo</div>
-            </div>
-          </button>
         </div>
       </section>
       <!-- Rodapé -->
@@ -554,6 +559,7 @@
       </div>
     </div>
 
+    <!-- LOADING -->
     <script>
       const progressBar = document.querySelector(".progress-bar");
       const percentText = document.querySelector(".percent");
@@ -609,10 +615,13 @@
     <script type="text/javascript" src='gallery/js/plugins.min.js'></script>
     <!-- Main js -->
     <script type="text/javascript" src="gallery/js/main.js"></script>
+    <!-- IMG Mobile -->
+    <script type="text/javascript" src="scripts/gallery.js"></script>
+
 
     <!--Copyrigth Ano Atual-->
     <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+        document.getElementById('year').textContent = new Date().getFullYear();
     </script>
 
     <!-- HACK para retirar rolagem do botão -->
@@ -648,310 +657,20 @@
       elements.forEach(el => observer.observe(el));
     </script>
 
-<!--Animação imagens Celular-->
-    <script>
-      class AnimationController {
-        constructor(container) {
-            this.container = container;
-            this.image = container.querySelector('.animation-image');
-            this.svg = container.querySelector('.animation-svg');
-            this.isRunning = false;
-            this.timeouts = [];
 
-            this.init();
-        }
+    <!--Script para gerenciamento da seção INSTALAÇÃO-->
+    <script type="text/javascript" src="scripts/installation2.js"></script>
 
-        init() {
-            this.resume();
-            this.startAnimationCycle();
-        }
 
-        clearTimeouts() {
-            this.timeouts.forEach(timeout => clearTimeout(timeout));
-            this.timeouts = [];
-        }
+     <!-- 3. Inclusão da Biblioteca HLS.js -->
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 
-        pause() {
-            this.isRunning = false;
-            this.clearTimeouts();
-            this.svg.classList.add('paused');
-            this.container.style.opacity = '0.7';
-        }
+    <!-- Script para Gerenciar video HLS -->
+    <script type="text/javascript" src="scripts/videohls.js"></script>
 
-        resume() {
-            this.isRunning = true;
-            this.svg.classList.remove('paused');
-            this.container.style.opacity = '1';
-            this.startAnimationCycle();
-        }
 
-        startAnimationCycle() {
-            if (!this.isRunning) return;
-
-            this.image.classList.remove('blurred');
-            this.svg.classList.remove('rotating');
-
-            const timeout1 = setTimeout(() => {
-                if (!this.isRunning) return;
-
-                this.svg.classList.add('rotating');
-                this.image.classList.add('blurred');
-
-                const timeout2 = setTimeout(() => {
-                    if (!this.isRunning) return;
-
-                    this.svg.classList.remove('rotating');
-
-                    const timeout3 = setTimeout(() => {
-                        if (!this.isRunning) return;
-
-                        this.svg.classList.add('rotating');
-                        this.image.classList.remove('blurred');
-
-                        const timeout4 = setTimeout(() => {
-                            if (!this.isRunning) return;
-
-                            this.svg.classList.remove('rotating');
-
-                            const timeout5 = setTimeout(() => {
-                                if (!this.isRunning) return;
-                                this.startAnimationCycle();
-                            }, 1000);
-
-                            this.timeouts.push(timeout5);
-                        }, 1000);
-
-                        this.timeouts.push(timeout4);
-                    }, 2000);
-
-                    this.timeouts.push(timeout3);
-                }, 1000);
-
-                this.timeouts.push(timeout2);
-            }, 1000);
-
-            this.timeouts.push(timeout1);
-        }
-    }
-
-    // Inicialização quando o DOM estiver carregado
-    document.addEventListener('DOMContentLoaded', () => {
-        const existingContainers = document.querySelectorAll('.animation-container');
-        existingContainers.forEach(container => new AnimationController(container));
-    });
-    </script>
-
-<!-- Script para gerenciamento da seção de instalação -->
-    <script>
-      // Classe para gerenciar a seção de instalação
-      class InstallationManager {
-        constructor() {
-          this.androidBtn = document.getElementById('android-btn');
-          this.iosBtn = document.getElementById('ios-btn');
-          this.instaBtn = document.getElementById('insta-btn');
-          this.androidInstructions = document.getElementById('android-instructions');
-          this.iosInstructions = document.getElementById('ios-instructions');
-          this.instagramInstructions = document.getElementById('instagram-instructions');
-          this.installBtn = document.getElementById('install-btn');
-          
-          this.currentDevice = 'android'; // Padrão
-          
-          this.init();
-        }
-        
-        init() {
-          // Detectar dispositivo automaticamente
-          this.detectDevice();
-          
-          // Adicionar event listeners
-          this.androidBtn.addEventListener('click', () => this.switchToDevice('android'));
-          this.iosBtn.addEventListener('click', () => this.switchToDevice('ios'));
-          this.instaBtn.addEventListener('click', () => this.switchToDevice('instagram'));
-          this.installBtn.addEventListener('click', () => this.handleInstallClick());
-          
-          /*console.log('InstallationManager inicializado');
-          console.log('Dispositivo detectado:', this.currentDevice);*/
-        }
-        
-        detectDevice() {
-          const userAgent = navigator.userAgent.toLowerCase();
-          const isIOS = /iphone|ipad|ipod/.test(userAgent);
-          const isAndroid = /android/.test(userAgent);
-          
-          // Detectar navegador do Instagram
-          const isInstagram = this.detectInstagramBrowser(userAgent);
-          
-          if (isInstagram) {
-            this.currentDevice = 'instagram';
-            console.log('Navegador do Instagram detectado!');
-          } else if (isIOS) {
-            this.currentDevice = 'ios';
-          } else if (isAndroid) {
-            this.currentDevice = 'android';
-          } else {
-            // Para desktop ou outros dispositivos, manter Android como padrão
-            this.currentDevice = 'android';
-          }
-          
-          // Aplicar a detecção inicial
-          this.switchToDevice(this.currentDevice);
-        }
-        
-        detectInstagramBrowser(userAgent) {
-          // Padrões conhecidos do navegador in-app do Instagram
-          const instagramPatterns = [
-            /instagram/i,
-            /fban\/instagram/i,
-            /fbav\/instagram/i,
-            /instagram.*mobile/i,
-            /mobile.*instagram/i
-          ];
-          
-          // Verificar se algum padrão corresponde
-          const matchesPattern = instagramPatterns.some(pattern => pattern.test(userAgent));
-          
-          // Verificações adicionais para maior precisão
-          const hasInstagramFeatures = this.checkInstagramFeatures();
-          
-          /** Log para debug
-          console.log('User Agent:', userAgent);
-          console.log('Matches Instagram pattern:', matchesPattern);
-          console.log('Has Instagram features:', hasInstagramFeatures);**/
-          
-          return matchesPattern || hasInstagramFeatures;
-        }
-        
-        checkInstagramFeatures() {
-          // Verificar se existem objetos ou métodos específicos do Instagram
-          try {
-            // O Instagram às vezes injeta objetos específicos no window
-            const hasInstagramObject = typeof window.InstagramWebView !== 'undefined' ||
-                                    typeof window.webkit?.messageHandlers?.instagram !== 'undefined' ||
-                                    typeof window.ReactNativeWebView !== 'undefined';
-            
-            // Verificar se há métodos específicos do Instagram
-            const hasInstagramMethods = typeof window.postMessage === 'function' &&
-                                      window.location.href.includes('instagram');
-            
-            return hasInstagramObject || hasInstagramMethods;
-          } catch (error) {
-            console.log('Erro ao verificar recursos do Instagram:', error);
-            return false;
-          }
-        }
-        
-        switchToDevice(device) {
-          this.currentDevice = device;
-          
-          // Atualizar botões
-          this.androidBtn.classList.remove('device-btn-active');
-          this.androidBtn.classList.add('device-btn-inactive');
-          this.iosBtn.classList.remove('device-btn-active');
-          this.iosBtn.classList.add('device-btn-inactive');
-          this.instaBtn.classList.remove('device-btn-active');
-          this.instaBtn.classList.add('device-btn-inactive');
-          
-          if (device === 'android') {
-            this.androidBtn.classList.remove('device-btn-inactive');
-            this.androidBtn.classList.add('device-btn-active');
-          } else if (device === 'ios') {
-            this.iosBtn.classList.remove('device-btn-inactive');
-            this.iosBtn.classList.add('device-btn-active');
-          } else if (device === 'instagram') {
-            this.instaBtn.classList.remove('device-btn-inactive');
-            this.instaBtn.classList.add('device-btn-active');
-          }
-          
-          // Animar transição das instruções
-          this.animateInstructionsChange(device);
-        }
-        
-        animateInstructionsChange(device) {
-          let currentInstructions, otherInstructions1, otherInstructions2;
-          
-          if (device === 'instagram') {
-            currentInstructions = this.instagramInstructions;
-            otherInstructions1 = this.androidInstructions;
-            otherInstructions2 = this.iosInstructions;
-          } else if (device === 'android') {
-            currentInstructions = this.androidInstructions;
-            otherInstructions1 = this.iosInstructions;
-            otherInstructions2 = this.instagramInstructions;
-          } else {
-            currentInstructions = this.iosInstructions;
-            otherInstructions1 = this.androidInstructions;
-            otherInstructions2 = this.instagramInstructions;
-          }
-          
-          // Fade out das outras instruções
-          [otherInstructions1, otherInstructions2].forEach(instructions => {
-            instructions.classList.add('fade-out');
-            instructions.classList.remove('fade-in');
-          });
-          
-          // Aguardar um pouco e então mostrar as novas instruções
-          setTimeout(() => {
-            [otherInstructions1, otherInstructions2].forEach(instructions => {
-              instructions.classList.add('hidden');
-            });
-            
-            currentInstructions.classList.remove('hidden');
-            
-            // Pequeno delay para garantir que o elemento está visível antes da animação
-            setTimeout(() => {
-              currentInstructions.classList.remove('fade-out');
-              currentInstructions.classList.add('fade-in');
-            }, 50);
-          }, 150);
-        }
-        
-        handleInstallClick() {
-          // Verificar se é um dispositivo móvel e se suporta PWA
-          if ('serviceWorker' in navigator && 'PushManager' in window) {
-            // Rolar suavemente para as instruções
-            this.scrollToInstructions();
-          } else {
-            // Fallback para dispositivos que não suportam PWA
-            window.open('https://momentos.art', '_blank');
-          }
-        }
-        
-        scrollToInstructions() {
-          const instructionsSection = document.querySelector('.max-w-4xl');
-          if (instructionsSection) {
-            instructionsSection.scrollIntoView({ 
-              behavior: 'smooth',
-              block: 'start'
-            });
-          }
-        }
-        
-        // Método público para alternar dispositivo (útil para debug)
-        toggleDevice() {
-          const devices = ['android', 'ios', 'instagram'];
-          const currentIndex = devices.indexOf(this.currentDevice);
-          const nextIndex = (currentIndex + 1) % devices.length;
-          this.switchToDevice(devices[nextIndex]);
-        }
-      }
-
-      // Inicializar quando o DOM estiver carregado
-      document.addEventListener('DOMContentLoaded', function() {
-        window.installManager = new InstallationManager();
-        
-        console.log('Seção de instalação carregada');
-        console.log('Para alternar dispositivo manualmente, use: installManager.toggleDevice()');
-      });
-      
-      // Detectar mudanças de orientação em dispositivos móveis
-      window.addEventListener('orientationchange', function() {
-        setTimeout(() => {
-          if (window.installManager) {
-            window.installManager.detectDevice();
-          }
-        }, 500);
-      });
-    </script>
+    <!-- Botão instalação PWA Android-->
+     <script type="text/javascript" src="../scripts/pwa.js"></script>
 
   </body>
 </html>
