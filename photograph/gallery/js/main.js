@@ -70,7 +70,7 @@ function PageTransition() {
                 duration: 300,
                 easing: 'easeInOutQuad',
                 complete: function(preload) {
-                    window.location.href = url;
+                    window.location.href = (window.i18n && typeof window.i18n.withLang === 'function') ? window.i18n.withLang(url) : url;
                 }
             });
         }

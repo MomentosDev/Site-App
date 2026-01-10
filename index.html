@@ -19,6 +19,7 @@
 
     <link rel="manifest" href="/manifest.json">
     
+    <script src="/scripts/i18n.js?vs=1.00"></script>
     <script src="/scripts/pwa.js?vs=2.00"></script>
 
     <script
@@ -233,7 +234,7 @@
     // Clique → cresce com bounce, mantém vídeo, redireciona depois de 2s
     btn.addEventListener("click", (e) => {
       e.preventDefault();
-      const target = btn.dataset.href;
+      const target = window.i18n?.withLang(btn.dataset.href) || btn.dataset.href;
 
       // aplica animação de bounce que dura 2s
       btn.classList.add("bounce-scale");
@@ -266,4 +267,3 @@ window.addEventListener('touchmove', e => {
 }, { passive: false });
 </script>
 </html>
-
