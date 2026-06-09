@@ -3,6 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="description" content="Momentos: Transforme suas vendas com ótimas fotos!" />
     <meta name="keywords" content="fotografia, app, galeria, fotógrafo, venda de fotos, QR Code" />
     <meta name="author" content="Momentos" />
@@ -19,6 +22,7 @@
 
     <link rel="manifest" href="/manifest.json">
     
+    <script src="/scripts/i18n.js?vs=1.00"></script>
     <script src="/scripts/pwa.js?vs=2.00"></script>
 
     <script
@@ -233,7 +237,7 @@
     // Clique → cresce com bounce, mantém vídeo, redireciona depois de 2s
     btn.addEventListener("click", (e) => {
       e.preventDefault();
-      const target = btn.dataset.href;
+      const target = window.i18n?.withLang(btn.dataset.href) || btn.dataset.href;
 
       // aplica animação de bounce que dura 2s
       btn.classList.add("bounce-scale");
@@ -266,4 +270,3 @@ window.addEventListener('touchmove', e => {
 }, { passive: false });
 </script>
 </html>
-
